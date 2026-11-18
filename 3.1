@@ -87,10 +87,9 @@ ALTER TABLE `department` MODIFY `building_no` INT(4);
 -- Оновлення для сутності «invoice», визначивши арибут як первинний ключ:
 ALTER TABLE `invoice` ADD PRIMARY KEY (invoice_id);
 -- Оновлення для сутностей «orders» та «invoice», визначивши арибути як вторинний ключі:
-ALTER TABLE `orders` DROP FOREIGN KEY `orders_fk0`;
 ALTER TABLE `orders` DROP FOREIGN KEY `orders_fk2`;
-ALTER TABLE `orders` ADD CONSTRAINT `orders_fk3` FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id);
-ALTER TABLE `invoice` ADD CONSTRAINT `invoice_fk0` FOREIGN KEY (employee_id) REFERENCES employee_id(employee_id);
+ALTER TABLE `orders` ADD CONSTRAINT `orders_fk4` FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id);
+ALTER TABLE `invoice` ADD CONSTRAINT `invoice_fk0` FOREIGN KEY (employee_id) REFERENCES employee(employee_id);
 -- Оновлення для сутностей «employee» та «department», визначивши унікальність імені користувача та вказавши значення за замовченням для міста представництва компанії:
 ALTER TABLE `department` ALTER `city` SET DEFAULT 'Lviv';
 ALTER TABLE `employee` ADD UNIQUE (`user_name`);
